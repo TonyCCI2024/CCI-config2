@@ -1,9 +1,14 @@
 version: 2.1
 
-jobs:
-  hello-world:
+executors:
+  default-executor:
     docker:
       - image: cimg/base:stable
+    working_directory: ~/project
+
+jobs:
+  hello-world:
+    executor: default-executor
     steps:
       - checkout
       - run:
