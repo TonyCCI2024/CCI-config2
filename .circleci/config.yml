@@ -7,17 +7,6 @@ executors:
     working_directory: ~/project
 
 jobs:
-  build:
-    executor: default-executor
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: echo "Installing dependencies..."
-      - run:
-          name: Build Project
-          command: echo "Building project..."
-
   test:
     executor: default-executor
     steps:
@@ -28,9 +17,6 @@ jobs:
 
 workflows:
   version: 2
-  build_and_test:
+  test_workflow:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - test
